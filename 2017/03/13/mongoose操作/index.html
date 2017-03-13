@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      &#39;mongoose操作&#39; | 渣芋的Blog 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="CynthiaChen">
+    
+    
+
+    <meta name="description" content="善用文档mongoosemongodb
+1. mongoose中使用promise
+Mongoose async operations, like .save() and queries, return Promises/A+ conformant promises.
+
+
+使用mongoose的异步操作，比如save，update,create会自动返回Promise对象
+123456789101">
+<meta property="og:type" content="article">
+<meta property="og:title" content="'mongoose操作' | 渣芋的Blog">
+<meta property="og:url" content="https://cynthiamochi.github.io/2017/03/13/mongoose操作/index.html">
+<meta property="og:site_name" content="渣芋的Blog">
+<meta property="og:description" content="善用文档mongoosemongodb
+1. mongoose中使用promise
+Mongoose async operations, like .save() and queries, return Promises/A+ conformant promises.
+
+
+使用mongoose的异步操作，比如save，update,create会自动返回Promise对象
+123456789101">
+<meta property="og:updated_time" content="2017-03-13T03:12:10.099Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="'mongoose操作' | 渣芋的Blog">
+<meta name="twitter:description" content="善用文档mongoosemongodb
+1. mongoose中使用promise
+Mongoose async operations, like .save() and queries, return Promises/A+ conformant promises.
+
+
+使用mongoose的异步操作，比如save，update,create会自动返回Promise对象
+123456789101">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">渣芋的Blog</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">&#39;mongoose操作&#39;</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-03-13" class="post-meta__date date">2017-03-13</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/programming/">技术</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/项目总结/">项目总结</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p><a href="http://mongoosejs.com/index.html" target="_blank" rel="external">善用文档mongoose</a><br><a href="https://docs.mongodb.com/manual/introduction/" target="_blank" rel="external">mongodb</a></p>
+<h3 id="1-mongoose中使用promise"><a href="#1-mongoose中使用promise" class="headerlink" title="1. mongoose中使用promise"></a><strong>1. mongoose中使用promise</strong></h3><blockquote>
+<p>Mongoose async operations, like .save() and queries, return Promises/A+ conformant promises.</p>
+</blockquote>
+<ul>
+<li><p>使用mongoose的异步操作，比如<code>save</code>，<code>update</code>,<code>create</code>会自动返回Promise对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gnr = <span class="keyword">new</span> Band(&#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">"Guns N' Roses"</span>,</div><div class="line">  <span class="attr">members</span>: [<span class="string">'Axl'</span>, <span class="string">'Slash'</span>]</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> promise = gnr.save();</div><div class="line">assert.ok(promise <span class="keyword">instanceof</span> <span class="built_in">require</span>(<span class="string">'mpromise'</span>));</div><div class="line"></div><div class="line">promise.then(<span class="function"><span class="keyword">function</span> (<span class="params">doc</span>) </span>&#123;</div><div class="line">  assert.equal(doc.name, <span class="string">"Guns N' Roses"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>queries不是标准的Promise但是有then方法，可以使用exec(),返回Promise对象。比如find前缀的<code>find</code>,<code>.findOneAndRemove</code>，<code>findOne</code>等</p>
+</li>
+</ul>
+<p>(只要返回类型是query的话,就可以执行exec方法，不执行就返回的是model自身，可以继续用其他的API)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> query = Band.findOne(&#123;<span class="attr">name</span>: <span class="string">"Guns N' Roses"</span>&#125;);</div><div class="line">assert.ok(!(query <span class="keyword">instanceof</span> <span class="built_in">require</span>(<span class="string">'mpromise'</span>)));</div><div class="line"></div><div class="line"><span class="comment">// A query is not a fully-fledged promise, but it does have a `.then()`.</span></div><div class="line">query.then(<span class="function"><span class="keyword">function</span> (<span class="params">doc</span>) </span>&#123;</div><div class="line">  <span class="comment">// use doc</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// `.exec()` gives you a fully-fledged promise</span></div><div class="line"><span class="keyword">var</span> promise = query.exec();</div><div class="line">assert.ok(promise <span class="keyword">instanceof</span> <span class="built_in">require</span>(<span class="string">'mpromise'</span>));</div><div class="line"></div><div class="line">promise.then(<span class="function"><span class="keyword">function</span> (<span class="params">doc</span>) </span>&#123;</div><div class="line">  <span class="comment">// use doc</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="2-外键"><a href="#2-外键" class="headerlink" title="2. 外键"></a><strong>2. 外键</strong></h3><p>使用<code>mongoose.Schema.Types.ObjectId</code>定义外键<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var mongoose = require(&apos;mongoose&apos;)</div><div class="line">  , Schema = mongoose.Schema</div><div class="line">  </div><div class="line">var personSchema = Schema(&#123;</div><div class="line">  _id     : Number,</div><div class="line">  name    : String,</div><div class="line">  age     : Number,</div><div class="line">  stories : [&#123; type: Schema.Types.ObjectId, ref: &apos;Story&apos; &#125;]</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var storySchema = Schema(&#123;</div><div class="line">  _creator : &#123; type: Number, ref: &apos;Person&apos; &#125;,</div><div class="line">  title    : String,</div><div class="line">  fans     : [&#123; type: Number, ref: &apos;Person&apos; &#125;]</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var Story  = mongoose.model(&apos;Story&apos;, storySchema);</div><div class="line">var Person = mongoose.model(&apos;Person&apos;, personSchema);</div></pre></td></tr></table></figure></p>
+<p>查找时使用populate可以同时取出外键内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 查找title为Once upon a timex的story，同时找出_creator的具体内容</div><div class="line">Story</div><div class="line">.findOne(&#123; title: &apos;Once upon a timex.&apos; &#125;)</div><div class="line">.populate(&apos;_creator&apos;)</div><div class="line">.exec(function (err, story) &#123;</div><div class="line">  if (err) return handleError(err);</div><div class="line">  console.log(&apos;The creator is %s&apos;, story._creator.name);</div><div class="line">  // prints &quot;The creator is Aaron&quot;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>可以进行进一步的条件查找<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Story</div><div class="line">.find(...)</div><div class="line">.populate(&#123;</div><div class="line">  path: &apos;fans&apos;,</div><div class="line">  match: &#123; age: &#123; $gte: 21 &#125;&#125;,</div><div class="line">  select: &apos;name -_id&apos;,</div><div class="line">  options: &#123; limit: 5 &#125;</div><div class="line">&#125;)</div><div class="line">.exec()</div></pre></td></tr></table></figure></p>
+<h3 id="3-使用pull和push移除数组中的项"><a href="#3-使用pull和push移除数组中的项" class="headerlink" title="3. 使用pull和push移除数组中的项"></a><strong>3. 使用pull和push移除数组中的项</strong></h3><p><a href="http://mongoosejs.com/docs/api.html#types-documentarray-js" target="_blank" rel="external">document Array操作</a></p>
+<p>在我删除博客文章的时候需要移除标签里的文章列表的对应项<br>使用<code>pull</code>移除<br>    <code>doc.array.pull({ _id: &#39;someId&#39; })</code><br>还有<code>push</code>添加<br><code>doc.subdocs.push({ _id: 4815162342 })</code></p>
+<h3 id="4-条件查找"><a href="#4-条件查找" class="headerlink" title="4. 条件查找"></a><strong>4. 条件查找</strong></h3><p><a href="https://docs.mongodb.com/manual/reference/operator/query-comparison/" target="_blank" rel="external">Comparison Query Operators</a></p>
+<ul>
+<li><code>$eq</code> : 找出全部等于某个值的 <code>{ &lt;field&gt;: { $eq: &lt;value&gt; } }等价于{ field: &lt;value&gt; }.</code></li>
+<li><code>$gt</code> : &gt; 大于的 <code>{field: {$gt: value} }</code></li>
+<li><code>$gte</code>    : &gt;=</li>
+<li><code>$lt</code> : &lt; </li>
+<li><code>$lte</code>  : &lt;= </li>
+<li><code>$ne</code> : !==</li>
+<li><code>$in</code>   : 匹配数组中符合的项 <code>{ field: { $in: [&lt;value1&gt;, &lt;value2&gt;, ... &lt;valueN&gt; ] } }</code></li>
+<li><code>$nin</code>    : 匹配数组中不符合的项</li>
+</ul>
+<p><a href="https://cnodejs.org/topic/504b4924e2b84515770103dd" target="_blank" rel="external">Mongoose学习参考文档——基础篇</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
